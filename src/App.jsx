@@ -672,88 +672,6 @@ a { color: inherit; }
 }
 
 /* ============================================================
-   EXPERIENCE / EDUCATION
-   ============================================================ */
-
-.exp-list {
-  display: flex; flex-direction: column;
-  border-top: 1px solid var(--line);
-}
-.exp-item {
-  border-bottom: 1px solid var(--line);
-  padding: 1.75rem 0;
-}
-.exp-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.4rem;
-  align-items: start;
-}
-@media (min-width: 760px) {
-  .exp-row { grid-template-columns: 150px 1fr auto; gap: 2.5rem; }
-}
-.exp-dates {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding-top: 0.35rem;
-}
-.exp-body { display: flex; flex-direction: column; gap: 0.35rem; }
-.exp-name {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
-  line-height: 1.3;
-  letter-spacing: -0.012em;
-  color: var(--fg);
-  margin: 0;
-}
-.exp-role {
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--fg-soft);
-  margin: 0;
-}
-.exp-place {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  white-space: nowrap;
-  padding-top: 0.5rem;
-}
-
-.edu-thesis {
-  font-family: var(--sans);
-  font-size: 0.94rem;
-  line-height: 1.65;
-  color: var(--fg-soft);
-  margin: 0.5rem 0 0 0;
-  max-width: 56ch;
-}
-.edu-thesis strong { color: var(--fg); font-weight: 600; }
-.edu-thesis em {
-  font-family: var(--serif);
-  font-style: italic;
-  color: var(--fg);
-}
-.edu-shape {
-  margin-top: 0.85rem;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--fg-muted);
-  max-width: 56ch;
-}
-
-/* ============================================================
    INTERLUDE
    ============================================================ */
 
@@ -1017,7 +935,6 @@ function Nav(props) {
       </button>
       <div class="nav-right">
         <button class="nav-link" onClick={() => scrollToId('about')}>About</button>
-        <button class="nav-link" onClick={() => scrollToId('experience')}>Experience</button>
         <button class="nav-link" onClick={() => scrollToId('projects')}>Projects</button>
         <button class="nav-link" onClick={() => scrollToId('contact')}>Contact</button>
         <button
@@ -1219,107 +1136,6 @@ function About() {
 }
 
 /* ============================================================
-   EXPERIENCE
-   ============================================================ */
-
-const EXPERIENCE = [
-  {
-    company: 'Recepto.ai',
-    role: "Founder's Office",
-    dates: 'Jan 2026 — Present',
-    place: 'Bangalore · Onsite',
-  },
-  {
-    company: 'Ziksir',
-    role: "Founder's Office",
-    dates: 'Oct — Nov 2025',
-    place: '',
-  },
-];
-
-function Experience() {
-  return (
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-head">
-          <div class="reveal">
-            <div class="section-label">
-              <span class="num">02</span>
-              <span class="rule" />
-              <span>Experience</span>
-            </div>
-          </div>
-          <h2 class="h-display reveal d1">
-            Where I've been <em>spending time</em>.
-          </h2>
-        </div>
-
-        <div class="exp-list reveal d2">
-          <For each={EXPERIENCE}>{(x) => (
-            <div class="exp-item">
-              <div class="exp-row">
-                <div class="exp-dates">{x.dates}</div>
-                <div class="exp-body">
-                  <h3 class="exp-name">{x.company}</h3>
-                  <p class="exp-role">{x.role}</p>
-                </div>
-                <span class="exp-place">{x.place}</span>
-              </div>
-            </div>
-          )}</For>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================================
-   EDUCATION
-   ============================================================ */
-
-function Education() {
-  return (
-    <section class="section" id="education">
-      <div class="container">
-        <div class="section-head">
-          <div class="reveal">
-            <div class="section-label">
-              <span class="num">03</span>
-              <span class="rule" />
-              <span>Education</span>
-            </div>
-          </div>
-          <h2 class="h-display reveal d1">
-            Where I <em>studied</em>.
-          </h2>
-        </div>
-
-        <div class="exp-list reveal d2">
-          <div class="exp-item">
-            <div class="exp-row">
-              <div class="exp-dates">2021 — 2026</div>
-              <div class="exp-body">
-                <h3 class="exp-name">IIT Roorkee</h3>
-                <p class="exp-role">BS-MS, Physics</p>
-                <p class="edu-thesis">
-                  <strong>Thesis</strong> — built a <em>(PEA)₂PbBr₄</em> halide
-                  perovskite photodetector with a carbon-based electrode.
-                </p>
-                <p class="edu-shape">
-                  Shaped how I think — physics problem-solving, systems thinking,
-                  analytical reasoning, curiosity-driven exploration, research.
-                </p>
-              </div>
-              <span class="exp-place">Roorkee · India</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================================
    PROJECTS
    ============================================================ */
 
@@ -1369,7 +1185,7 @@ function Projects() {
         <div class="section-head">
           <div class="reveal">
             <div class="section-label">
-              <span class="num">04</span>
+              <span class="num">02</span>
               <span class="rule" />
               <span>Currently exploring</span>
             </div>
@@ -1440,7 +1256,7 @@ function Contact() {
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">
-            <span class="num">05</span>
+            <span class="num">03</span>
             <span class="rule" />
             <span>Contact</span>
           </div>
@@ -1484,8 +1300,6 @@ function HomePage() {
     <>
       <Hero />
       <About />
-      <Experience />
-      <Education />
       <Projects />
       <Interlude />
       <Contact />
