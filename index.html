@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <title>Kunal Sharma</title>
     <script>
       (function () {
@@ -15,9 +18,372 @@
         } catch (e) {}
       })();
     </script>
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
+    <div class="page">
+      <nav class="nav" id="nav">
+        <a class="nav-mark" href="#top">
+          <span class="dot"></span>
+          <span>Kunal Sharma</span>
+        </a>
+        <div class="nav-right">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div class="content">
+        <!-- HERO -->
+        <section class="hero" id="top">
+          <div class="container">
+            <div class="hero-grid">
+              <div>
+                <div class="hero-top reveal">
+                  <span class="pulse"></span>
+                  <span>Currently exploring</span>
+                </div>
+
+                <h1 class="hero-headline reveal d1">
+                  I take things apart to figure out how they actually <em>work</em>.
+                </h1>
+
+                <p class="hero-sub reveal d2">
+                  Most of what I think about sits between disciplines — <strong>AI, systems,
+                  product, and the small details that make digital tools feel considered</strong>.
+                  I'm interested in how good things actually get built, how workflows shape
+                  the way people think, and what changes when you take something apart
+                  carefully. Most of what's here is in progress.
+                </p>
+
+                <div class="cta-row reveal d3">
+                  <a class="btn btn-primary" href="#projects">
+                    <span>See what I'm exploring</span>
+                    <span class="arrow">→</span>
+                  </a>
+                  <a class="btn btn-ghost" href="#contact">
+                    <span>Say hi</span>
+                    <span class="arrow">↓</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="reveal d4">
+                <figure class="hero-portrait">
+                  <img src="/kunal.jpg" alt="Kunal Sharma" loading="eager" />
+                  <figcaption class="hero-portrait-cap">
+                    <span>Kunal Sharma</span>
+                    <span>Roorkee · 2026</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="hero-meta reveal d5">
+              <div class="hero-meta-item">
+                <div class="label">Currently reading</div>
+                <div class="body">
+                  Whatever I have open in tabs — usually some mix of essays on product,
+                  AI write-ups, and a book I'm only halfway through.
+                </div>
+              </div>
+              <div class="hero-meta-item">
+                <div class="label">Thinking about</div>
+                <div class="body">
+                  What it actually takes to <em>think with</em> AI
+                  <span class="soft">— rather than just produce faster with it.</span>
+                </div>
+              </div>
+              <div class="hero-meta-item">
+                <div class="label">Right now</div>
+                <div class="body">
+                  Roorkee, IN · <span id="live-time">—</span>
+                  <span class="soft">Reading, writing, tinkering. Open to interesting conversations.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+          <div class="container">
+            <div class="about-grid">
+              <div class="about-side reveal">
+                <div class="about-avatar">
+                  <img src="/kunal-avatar.jpg" alt="Kunal Sharma" loading="lazy" />
+                </div>
+                <div class="section-label">
+                  <span class="num">01</span>
+                  <span class="rule"></span>
+                  <span>About</span>
+                </div>
+                <div class="about-meta">
+                  <div class="kv"><span class="k">Focus</span><span class="v">AI · systems · product</span></div>
+                  <div class="kv"><span class="k">Approach</span><span class="v">Reading, taking things apart, writing notes</span></div>
+                  <div class="kv"><span class="k">Based in</span><span class="v">Roorkee, India</span></div>
+                </div>
+              </div>
+
+              <div>
+                <h2 class="h-display reveal d1">
+                  I tend to notice the systems behind things — and the small details <em>inside them</em>.
+                </h2>
+
+                <div class="prose">
+                  <p class="reveal d2">
+                    I come from a technical, research-leaning background, but most of what I
+                    actually spend my time on sits between disciplines: AI, systems,
+                    workflows, design, psychology, and how products end up <em>feeling</em> the
+                    way they feel. I'm trying to learn how good digital products actually
+                    get built — by reading, taking things apart, and looking closely enough
+                    to understand <em>why</em> something works.
+                  </p>
+
+                  <p class="reveal d3">
+                    I'm not a senior PM, a founder, or an "AI expert." I'm someone in the
+                    middle of figuring all of that out — reading a lot, taking small things
+                    apart, writing notes I rarely publish. The questions I'm most drawn to
+                    are the boring-sounding ones: why does this feel good to use? what's the
+                    hidden workflow underneath this product? what changed in me when I
+                    started using this tool?
+                  </p>
+
+                  <div class="pullquote reveal d4">
+                    The internet rewards confidence. I'm more interested in being <em>curious</em> and honest.
+                  </div>
+
+                  <p class="reveal d5">
+                    The projects on this site are mostly explorations in progress. They're
+                    closer to how I actually think than anything that'd fit on a résumé —
+                    and most of them aren't finished. I'd rather show what I'm working
+                    through than wait until everything looks polished.
+                  </p>
+                </div>
+
+                <div class="questions reveal d6">
+                  <div class="questions-label">Questions I'm sitting with right now</div>
+                  <ul>
+                    <li>
+                      <span class="num">01</span>
+                      <span>What makes a digital product feel considered — versus one that just functions?</span>
+                    </li>
+                    <li>
+                      <span class="num">02</span>
+                      <span>What does it actually take to think with AI, rather than just produce faster with it?</span>
+                    </li>
+                    <li>
+                      <span class="num">03</span>
+                      <span>Is taste something you can practice, or just something you slowly notice in yourself?</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+          <div class="container">
+            <div class="section-head">
+              <div class="reveal">
+                <div class="section-label">
+                  <span class="num">02</span>
+                  <span class="rule"></span>
+                  <span>Currently exploring</span>
+                </div>
+              </div>
+
+              <h2 class="h-display reveal d1">
+                A few things I'm <em>working through</em> — slowly.
+              </h2>
+
+              <p class="section-lede reveal d2">
+                None of these are finished. Most are open notebooks: a workflow I'm tinkering
+                with, a product I'm taking apart, an experiment I haven't shipped. I'd rather
+                show what I'm actually thinking about than a polished case study I only
+                half-believe.
+              </p>
+            </div>
+
+            <div class="work-list reveal d3">
+              <div class="work-item">
+                <div class="work-row">
+                  <div class="work-num"><span class="accent">01</span> · Workflow</div>
+                  <div class="work-body">
+                    <h3 class="work-title">Reading &amp; note-taking workflow</h3>
+                    <p class="work-sub">A small ongoing experiment in reducing friction between reading PDFs, organising notes, and the moment those notes actually turn into a thought. Less about a perfect tool — more about understanding what breaks when you try to think with what you read.</p>
+                  </div>
+                  <span class="work-status">
+                    <span class="ring"></span>
+                    <span>Coming soon</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="work-item">
+                <div class="work-row">
+                  <div class="work-num"><span class="accent">02</span> · Product · Behavioral</div>
+                  <div class="work-body">
+                    <h3 class="work-title">Valorant — ranked &amp; retention teardown</h3>
+                    <p class="work-sub">Working through what's actually happening inside Valorant's progression and ranking systems — and why the behavioural design feels more deliberate than most competitive games admit. Notes in progress, not a polished thesis yet.</p>
+                  </div>
+                  <span class="work-status">
+                    <span class="ring"></span>
+                    <span>Coming soon</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="work-item">
+                <div class="work-row">
+                  <div class="work-num"><span class="accent">03</span> · GTM · Product strategy</div>
+                  <div class="work-body">
+                    <h3 class="work-title">Slack — positioning &amp; adoption case study</h3>
+                    <p class="work-sub">A slow-built case study on how Slack got adopted, positioned, and grew — focused on the parts most teardowns skip: communication norms, internal momentum, and what “good timing” actually means in B2B.</p>
+                  </div>
+                  <span class="work-status">
+                    <span class="ring"></span>
+                    <span>Coming soon</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="work-item">
+                <div class="work-row">
+                  <div class="work-num"><span class="accent">04</span> · AI · Writing</div>
+                  <div class="work-body">
+                    <h3 class="work-title">AI workflow &amp; writing experiments</h3>
+                    <p class="work-sub">Notes from using Claude and GPT as actual thinking partners — for research, drafting, and developing ideas. Trying to figure out where AI genuinely changes how I think, and where it just makes me feel productive.</p>
+                  </div>
+                  <span class="work-status">
+                    <span class="ring"></span>
+                    <span>Coming soon</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="work-item">
+                <div class="work-row">
+                  <div class="work-num"><span class="accent">05</span> · Workflow</div>
+                  <div class="work-body">
+                    <h3 class="work-title">Legal internship discovery — workflow experiment</h3>
+                    <p class="work-sub">A small product experiment for a specific friction: how fragmented opportunity discovery is for legal internships. Aggregating listings, surfacing relevant firms, and trying to reduce the anxiety of always feeling like you’re missing something.</p>
+                  </div>
+                  <span class="work-status">
+                    <span class="ring"></span>
+                    <span>Coming soon</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="work-item">
+                <div class="work-row">
+                  <div class="work-num"><span class="accent">06</span> · Notes</div>
+                  <div class="work-body">
+                    <h3 class="work-title">Reflections — philosophy, systems, technology</h3>
+                    <p class="work-sub">An ongoing journal of short notes — what I notice using AI tools, why one product feels considered and another doesn't, what changes in me when I adopt a new workflow. Mostly thinking out loud. Some of these may show up here as proper writing later.</p>
+                  </div>
+                  <span class="work-status">
+                    <span class="ring"></span>
+                    <span>Coming soon</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- INTERLUDE -->
+        <section class="interlude">
+          <div class="container read">
+            <div class="reveal">
+              <span class="interlude-mark">Note</span>
+            </div>
+            <p class="interlude-text reveal d1">
+              Most of what's here is mid-thought. I'd rather show <em>that</em> — than wait
+              until everything looks finished.
+            </p>
+            <span class="interlude-sig reveal d2">— K.</span>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+          <div class="container">
+            <div class="section-head reveal">
+              <div class="section-label">
+                <span class="num">03</span>
+                <span class="rule"></span>
+                <span>Contact</span>
+              </div>
+            </div>
+
+            <div class="contact-grid">
+              <div class="reveal">
+                <h2 class="contact-headline">
+                  If something here <em>resonated</em> — or you're poking at similar things — I'd love to talk.
+                </h2>
+                <p class="contact-lede">
+                  I'm not selling anything. Mostly just curious about people thinking about
+                  the same questions — AI, product, systems, how good digital experiences get
+                  built. Happy to compare notes, share what's in progress, or just say hi.
+                </p>
+              </div>
+
+              <div class="contact-rows reveal d1">
+                <a class="contact-row" href="mailto:KunalSharmakv4@gmail.com">
+                  <span class="ckey">
+                    <span class="cicon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <path d="m3 7 9 6 9-6" />
+                      </svg>
+                    </span>
+                    <span>Email</span>
+                  </span>
+                  <span class="cval">KunalSharmakv4@gmail.com <span class="carr">↗</span></span>
+                </a>
+                <a class="contact-row" href="https://www.linkedin.com/in/kunal-sharma-k21" target="_blank" rel="noreferrer">
+                  <span class="ckey">
+                    <span class="cicon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z" />
+                      </svg>
+                    </span>
+                    <span>LinkedIn</span>
+                  </span>
+                  <span class="cval">linkedin.com/in/kunal-sharma-k21 <span class="carr">↗</span></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <div class="container">
+          <div class="footer">
+            <span class="footer-mark">
+              <span class="dot"></span>
+              <span>Roorkee, IN</span>
+            </span>
+            <span>© 2026 Kunal Sharma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
