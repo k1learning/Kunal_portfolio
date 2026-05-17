@@ -1,4 +1,4 @@
-import { createSignal, createMemo, onMount, onCleanup, For } from 'solid-js';
+import { createSignal, createMemo, createEffect, onMount, onCleanup, For } from 'solid-js';
 
 /* ============================================================
    Kunal Sharma — portfolio
@@ -24,6 +24,11 @@ const STYLES = `
   --accent:       #0099FF;
   --accent-soft:  #E5F2FF;
 
+  --nav-bg:       rgba(248, 246, 241, 0.92);
+  --shadow-deep:  rgba(26, 26, 26, 0.18);
+  --shadow-soft:  rgba(26, 26, 26, 0.25);
+  --portrait-glow: rgba(0, 153, 255, 0.06);
+
   --sans:    'Hanken Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --mono:    'League Spartan', 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
   --serif:   'Josefin Sans', 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
@@ -34,6 +39,38 @@ const STYLES = `
   --gutter:       clamp(1.25rem, 4vw, 2.5rem);
 
   --ease:   cubic-bezier(0.22, 0.68, 0.32, 1);
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg:           #0E0F11;
+  --bg-alt:       #15171A;
+  --bg-soft:      #1B1D21;
+
+  --fg:           #F1F2F3;
+  --fg-soft:      #C7C9CC;
+  --fg-muted:     #8A8D92;
+  --fg-faint:     #4E5158;
+
+  --line:         #25272B;
+  --line-soft:    #1D1F23;
+
+  --accent:       #4DB8FF;
+  --accent-soft:  rgba(77, 184, 255, 0.14);
+
+  --nav-bg:       rgba(14, 15, 17, 0.78);
+  --shadow-deep:  rgba(0, 0, 0, 0.55);
+  --shadow-soft:  rgba(0, 0, 0, 0.4);
+  --portrait-glow: rgba(77, 184, 255, 0.08);
+
+  color-scheme: dark;
+}
+
+html, body, .nav, .btn, .work-item, .contact-row, .hero-portrait img, .about-avatar img {
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.35s;
+  transition-timing-function: var(--ease);
 }
 
 * { box-sizing: border-box; }
@@ -81,7 +118,7 @@ a { color: inherit; }
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled {
-  background: rgba(248, 246, 241, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px) saturate(120%);
   -webkit-backdrop-filter: blur(10px) saturate(120%);
   border-bottom-color: var(--line);
@@ -124,10 +161,39 @@ a { color: inherit; }
 }
 .nav-cv:hover { opacity: 0.6; }
 
+.theme-toggle {
+  width: 34px; height: 34px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--fg-soft);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.4s var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}
+.theme-toggle svg {
+  width: 15px; height: 15px;
+  display: block;
+}
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme='dark'] .theme-toggle .icon-sun { display: block; }
+:root[data-theme='dark'] .theme-toggle .icon-moon { display: none; }
+
 @media (max-width: 640px) {
   .nav-right { gap: 1rem; }
   .nav-link { display: none; }
 }
+
+:root[data-theme='dark'] .hero-portrait img,
+:root[data-theme='dark'] .about-avatar img {
+  filter: saturate(0.85) brightness(0.92);
+}
+:root[data-theme='dark'] ::selection { background: var(--accent-soft); color: var(--fg); }
 
 /* ============================================================
    REVEAL
@@ -204,7 +270,7 @@ a { color: inherit; }
   border-radius: 2px;
   background: var(--bg-soft);
   border: 1px solid var(--line);
-  box-shadow: 0 1px 0 var(--line), 0 30px 50px -30px rgba(26, 26, 26, 0.18);
+  box-shadow: 0 1px 0 var(--line), 0 30px 50px -30px var(--shadow-deep);
 }
 .hero-portrait img {
   width: 100%; height: 100%;
@@ -217,7 +283,7 @@ a { color: inherit; }
 .hero-portrait::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(0, 153, 255, 0.06));
+  background: linear-gradient(180deg, transparent 60%, var(--portrait-glow));
   pointer-events: none;
 }
 .hero-portrait-cap {
@@ -461,7 +527,7 @@ a { color: inherit; }
   border: 1px solid var(--line);
   background: var(--bg-soft);
   margin-bottom: 1.25rem;
-  box-shadow: 0 8px 20px -12px rgba(26, 26, 26, 0.25);
+  box-shadow: 0 8px 20px -12px var(--shadow-soft);
 }
 .about-avatar img {
   width: 100%; height: 100%;
@@ -886,6 +952,43 @@ function useLiveTime() {
   });
 }
 
+function useTheme() {
+  const getInitial = () => {
+    try {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'light' || stored === 'dark') return stored;
+    } catch {}
+    if (typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  };
+
+  const [theme, setTheme] = createSignal(getInitial());
+
+  createEffect(() => {
+    const t = theme();
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('theme', t); } catch {}
+  });
+
+  onMount(() => {
+    const mq = window.matchMedia?.('(prefers-color-scheme: dark)');
+    if (!mq) return;
+    const onChange = (e) => {
+      try {
+        if (localStorage.getItem('theme')) return;
+      } catch {}
+      setTheme(e.matches ? 'dark' : 'light');
+    };
+    mq.addEventListener?.('change', onChange);
+    onCleanup(() => mq.removeEventListener?.('change', onChange));
+  });
+
+  const toggle = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+  return [theme, toggle];
+}
+
 function useNoIndex() {
   onMount(() => {
     const meta = document.createElement('meta');
@@ -904,7 +1007,7 @@ function scrollToId(id) {
    NAV / FOOTER
    ============================================================ */
 
-function Nav() {
+function Nav(props) {
   const scrolled = useScrolled();
   return (
     <nav class="nav" classList={{ scrolled: scrolled() }}>
@@ -917,6 +1020,20 @@ function Nav() {
         <button class="nav-link" onClick={() => scrollToId('experience')}>Experience</button>
         <button class="nav-link" onClick={() => scrollToId('projects')}>Projects</button>
         <button class="nav-link" onClick={() => scrollToId('contact')}>Contact</button>
+        <button
+          class="theme-toggle"
+          onClick={props.onToggleTheme}
+          aria-label={props.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          title={props.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
       </div>
     </nav>
   );
@@ -1379,11 +1496,12 @@ function HomePage() {
 
 export default function App() {
   useNoIndex();
+  const [theme, toggleTheme] = useTheme();
   return (
     <>
       <style>{STYLES}</style>
       <div class="page">
-        <Nav />
+        <Nav theme={theme()} onToggleTheme={toggleTheme} />
         <div class="content">
           <HomePage />
         </div>
