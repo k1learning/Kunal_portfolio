@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360">
+  <defs>
+    <clipPath id="shirtClip">
+      <path d="M 105 270 Q 100 240, 130 226 L 230 226 Q 260 240, 255 270 L 255 295 L 105 295 Z" />
+    </clipPath>
+  </defs>
+
+  <!-- Pink circular background -->
+  <circle cx="180" cy="180" r="170" fill="#FCE0EE" />
+  <circle cx="180" cy="180" r="170" fill="none" stroke="#EE3C95" stroke-opacity="0.22" stroke-width="2" />
+
+  <!-- T-shirt: color-block black + white -->
+  <rect x="100" y="220" width="80" height="80" fill="#1F1A2E" clip-path="url(#shirtClip)" />
+  <rect x="180" y="220" width="80" height="80" fill="#FFFFFF" clip-path="url(#shirtClip)" />
+  <line x1="180" y1="226" x2="180" y2="295" stroke="#5C5969" stroke-width="0.6" stroke-opacity="0.4" />
+  <path d="M 105 270 Q 100 240, 130 226 L 230 226 Q 260 240, 255 270 L 255 295 L 105 295 Z"
+        fill="none" stroke="#1F1A2E" stroke-width="1.8" stroke-linejoin="round" />
+
+  <!-- Crewneck collar -->
+  <path d="M 158 226 Q 180 245, 202 226"
+        fill="#FCE0EE" stroke="#1F1A2E" stroke-width="1.8" stroke-linecap="round" />
+
+  <!-- Neck -->
+  <rect x="167" y="215" width="26" height="22" fill="#B57F4A" />
+  <line x1="167" y1="216" x2="167" y2="235" stroke="#8B5E32" stroke-width="1.2" stroke-opacity="0.5" />
+  <line x1="193" y1="216" x2="193" y2="235" stroke="#8B5E32" stroke-width="1.2" stroke-opacity="0.5" />
+
+  <!-- Head -->
+  <ellipse cx="180" cy="170" rx="65" ry="70" fill="#B57F4A" />
+  <!-- Head right-side shading -->
+  <path d="M 235 145 Q 247 200, 222 235"
+        stroke="#8B5E32" stroke-opacity="0.30" stroke-width="3" fill="none" stroke-linecap="round" />
+
+  <!-- FULL BEARD -->
+  <path d="
+    M 122 180
+    C 115 215, 128 250, 158 258
+    C 175 264, 185 264, 202 258
+    C 232 250, 245 215, 238 180
+    C 232 188, 222 192, 208 192
+    C 198 192, 192 192, 180 192
+    C 168 192, 162 192, 152 192
+    C 138 192, 128 188, 122 180
+    Z"
+    fill="#1E0F08" />
+
+  <!-- Subtle beard texture lines -->
+  <path d="M 138 220 Q 142 232, 140 240" stroke="#000" stroke-opacity="0.3" stroke-width="0.8" fill="none" />
+  <path d="M 168 240 Q 172 248, 170 254" stroke="#000" stroke-opacity="0.3" stroke-width="0.8" fill="none" />
+  <path d="M 192 240 Q 196 248, 194 254" stroke="#000" stroke-opacity="0.3" stroke-width="0.8" fill="none" />
+  <path d="M 218 218 Q 222 228, 220 236" stroke="#000" stroke-opacity="0.3" stroke-width="0.8" fill="none" />
+
+  <!-- MUSTACHE -->
+  <path d="
+    M 152 195
+    Q 162 188, 175 193
+    Q 180 195, 185 193
+    Q 198 188, 208 195
+    L 205 204
+    Q 196 199, 188 202
+    Q 180 204, 172 202
+    Q 164 199, 155 204
+    Z"
+    fill="#1E0F08" />
+
+  <!-- HAIR — bumpy curly silhouette -->
+  <path d="
+    M 120 140
+    C 100 115, 105 70, 140 65
+    Q 150 50, 170 60
+    Q 180 46, 195 60
+    Q 212 50, 232 65
+    C 265 70, 260 115, 240 140
+    C 232 134, 222 130, 212 135
+    C 200 128, 188 128, 178 132
+    C 168 128, 156 130, 148 135
+    C 138 132, 128 134, 120 140
+    Z"
+    fill="#1E0F08" />
+
+  <!-- A couple of curl "bump" highlights to add depth — same dark color, on top of hair -->
+  <path d="M 155 70 Q 160 62, 168 68" stroke="#000" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" fill="none" />
+  <path d="M 195 65 Q 202 58, 212 64" stroke="#000" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" fill="none" />
+  <path d="M 175 85 Q 182 78, 192 84" stroke="#000" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" fill="none" />
+
+  <!-- EYEBROWS (thick, slightly arched) -->
+  <path d="M 145 158 Q 158 150, 172 156" stroke="#1E0F08" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  <path d="M 188 156 Q 202 150, 215 158" stroke="#1E0F08" stroke-width="4.5" stroke-linecap="round" fill="none" />
+
+  <!-- EYES -->
+  <ellipse cx="159" cy="175" rx="3.5" ry="4.8" fill="#1F1A2E" />
+  <ellipse cx="201" cy="175" rx="3.5" ry="4.8" fill="#1F1A2E" />
+  <circle cx="160" cy="174" r="1.3" fill="#FFFFFF" />
+  <circle cx="202" cy="174" r="1.3" fill="#FFFFFF" />
+
+  <!-- Nose hint -->
+  <path d="M 180 178 Q 177 188, 182 192"
+        stroke="#8B5E32" stroke-opacity="0.55" stroke-width="1.5" stroke-linecap="round" fill="none" />
+
+  <!-- Subtle cheek warmth above beard line -->
+  <ellipse cx="148" cy="183" rx="6" ry="3" fill="#EE3C95" opacity="0.20" />
+  <ellipse cx="212" cy="183" rx="6" ry="3" fill="#EE3C95" opacity="0.20" />
+
+  <!-- Smile peeking through beard -->
+  <path d="M 170 213 Q 180 218, 190 213"
+        stroke="#1F1A2E" stroke-width="2.2" stroke-linecap="round" fill="none" />
+</svg>
