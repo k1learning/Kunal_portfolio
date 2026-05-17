@@ -782,6 +782,26 @@ a { color: inherit; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--fg-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.contact-row .cicon {
+  width: 32px; height: 32px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--fg-soft);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.contact-row .cicon svg {
+  width: 14px; height: 14px;
+  display: block;
+}
+.contact-row:hover .cicon {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 .contact-row .cval {
   display: flex; align-items: center; gap: 0.55rem;
@@ -1276,11 +1296,26 @@ function Contact() {
 
           <div class="contact-rows reveal d1">
             <a class="contact-row" href="mailto:KunalSharmakv4@gmail.com">
-              <span class="ckey">Email</span>
+              <span class="ckey">
+                <span class="cicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" />
+                  </svg>
+                </span>
+                <span>Email</span>
+              </span>
               <span class="cval">KunalSharmakv4@gmail.com <span class="carr">↗</span></span>
             </a>
             <a class="contact-row" href="https://www.linkedin.com/in/kunal-sharma-k21" target="_blank" rel="noreferrer">
-              <span class="ckey">LinkedIn</span>
+              <span class="ckey">
+                <span class="cicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9z" />
+                  </svg>
+                </span>
+                <span>LinkedIn</span>
+              </span>
               <span class="cval">linkedin.com/in/kunal-sharma-k21 <span class="carr">↗</span></span>
             </a>
           </div>
